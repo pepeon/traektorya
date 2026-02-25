@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# 🚗 Vehicles SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Single Page Application built with **React** and **Redux Toolkit** for managing a list of vehicles received from a REST API.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Technologies Used
 
-### `npm start`
+- React
+- Redux Toolkit
+- React Leaflet
+- Leaflet
+- JavaScript (ES6+)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📌 Features
 
-### `npm test`
+- Fetch vehicles from remote API
+- Display vehicle list (name, model, year, price)
+- Add new vehicles
+- Edit vehicle name and price
+- Delete vehicles
+- Sort vehicles by year and price
+- Interactive map with vehicle locations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🗺 Map Integration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Vehicle coordinates (`latitude`, `longitude`) are displayed on an interactive map using **React Leaflet** and OpenStreetMap tiles.  
+Each vehicle is represented as a marker with a popup containing vehicle information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏗 Architecture
 
-### `npm run eject`
+The project follows a feature-based structure and clean separation of concerns:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **React (Functional Components + Hooks)**
+- **Redux Toolkit** for centralized state management
+- **Async Thunks** for API requests
+- Separate API layer
+- Modular components structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🧠 State Management
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Redux is used as a single source of truth:
 
-## Learn More
+- Vehicle list stored globally
+- CRUD operations handled via reducers
+- Sorting performed at state level
+- Components connected via `useSelector` and `useDispatch`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🌐 API Endpoint
 
-### Code Splitting
+GET: https://task.tspb.su/test-task/vehicles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Example response:
 
-### Analyzing the Bundle Size
+```json
+[
+  {
+    "id": 1,
+    "name": "Toyota",
+    "model": "Camry",
+    "year": 2021,
+    "color": "red",
+    "price": 21000,
+    "latitude": 55.753332,
+    "longitude": 37.621676
+  }
+]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
